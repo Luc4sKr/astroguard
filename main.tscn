@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmmpiqq65r57p"]
+
+[ext_resource type="Script" path="res://scripts/player/move.gd" id="1_4qf3r"]
+[ext_resource type="Texture2D" uid="uid://doghgswfah2cg" path="res://art/sprites/spaceships/spaceships.png" id="1_dy8k8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5qhb"]
+atlas = ExtResource("1_dy8k8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vap17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5qhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(540, 360)
+scale = Vector2(2, 2)
+script = ExtResource("1_4qf3r")
+
+[node name="collision" type="CollisionShape2D" parent="player"]
+
+[node name="animation" type="AnimatedSprite2D" parent="player"]
+sprite_frames = SubResource("SpriteFrames_vap17")
