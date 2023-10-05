@@ -9,4 +9,7 @@ script = ExtResource("1_de70y")
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -1)
+rotation = 4.71239
 texture = ExtResource("1_bkr8i")
+hframes = 4
