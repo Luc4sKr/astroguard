@@ -11,3 +11,9 @@ hframes = 5
 vframes = 3
 frame = 4
 script = ExtResource("2_tlmq8")
+
+[node name="reload_time" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
+[connection signal="timeout" from="reload_time" to="." method="_on_reload_time_timeout"]
