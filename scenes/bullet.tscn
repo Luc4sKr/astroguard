@@ -9,12 +9,12 @@ script = ExtResource("1_de70y")
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -1)
-rotation = 4.71239
+scale = Vector2(2, 2)
 texture = ExtResource("1_bkr8i")
 hframes = 4
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0.5, -1)
-scale = Vector2(0.25, 0.5)
+position = Vector2(0, 3.57628e-07)
+scale = Vector2(1, 0.5)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
