@@ -3,18 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://ck2qige4by0h7" path="res://art/sprites/spaceships/missiles.png" id="1_bkr8i"]
 [ext_resource type="Script" path="res://scripts/player/bullet.gd" id="1_de70y"]
 
-[node name="bullet" type="Node2D"]
-script = ExtResource("1_de70y")
-
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="bullet" type="Sprite2D"]
 texture_filter = 1
-position = Vector2(0, -1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_bkr8i")
 hframes = 4
+script = ExtResource("1_de70y")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, 3.57628e-07)
-scale = Vector2(1, 0.5)
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+position = Vector2(-2.98023e-08, 0.5)
+scale = Vector2(0.5, 0.25)
