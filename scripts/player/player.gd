@@ -5,10 +5,20 @@ var bullet = preload("res://scenes/bullet.tscn")
 
 var is_reloaded = true
 
+var mouse_position = null
+var direction = null
+var angle = null
+
+func _ready():
+	Global.player = self
+	
+func _exit_tree():
+	Global.player = null
+
 func _process(delta):
-	var mouse_position = get_viewport().get_mouse_position()
-	var direction = (mouse_position - global_position).normalized()
-	var angle = atan2(direction.y, direction.x)
+	mouse_position = get_viewport().get_mouse_position()
+	direction = (mouse_position - global_position).normalized()
+	angle = atan2(direction.y, direction.x)
 	rotation_degrees = angle * 180 / PI
 	
 	if Input.is_action_pressed("shoot") and is_reloaded:
