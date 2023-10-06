@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmmpiqq65r57p"]
+
+[ext_resource type="Texture2D" uid="uid://doghgswfah2cg" path="res://art/sprites/spaceships/spaceships.png" id="1_dy8k8"]
+
+[sub_resource type="GDScript" id="GDScript_wrmbu"]
+script/source = "extends Node2D
+
+
+func _ready() -> void:
+	pass
+	#global.parent_node_creation = self
+func _exit_tree():
+	pass
+	#global.parent_node_creation = null
+"
+
+[sub_resource type="GDScript" id="GDScript_2qddx"]
+script/source = "extends Sprite2D
+
+#var global = load(\"res://scripts/player/global.gd\")
+var bullet = preload(\"res://scenes/bullet.tscn\")
+
+
+func _process(delta):
+	var mouse_position = get_viewport().get_mouse_position()
+	var direction = (mouse_position - global_position).normalized()
+	var angle = atan2(direction.y, direction.x)
+	rotation_degrees = angle * 180 / PI
+	
+	if Input.is_action_just_pressed(\"shoot\"):
+		global.instance_node(bullet, global_position, get_parent())
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlv0q"]
+size = Vector2(28.5, 41)
+
+[node name="main" type="Node2D"]
+script = SubResource("GDScript_wrmbu")
+
+[node name="player" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(360, 360)
+scale = Vector2(2, 2)
+script = SubResource("GDScript_2qddx")
+
+[node name="collision" type="CollisionShape2D" parent="player"]
+position = Vector2(-0.75, 0)
+shape = SubResource("RectangleShape2D_vlv0q")
+one_way_collision_margin = 0.0
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("1_dy8k8")
+hframes = 5
+vframes = 3
+frame = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
