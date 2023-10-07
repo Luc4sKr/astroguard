@@ -1,5 +1,8 @@
 extends Node
 
+var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
+
 var parent_node_creation = null
 var player = null
 
