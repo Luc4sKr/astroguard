@@ -4,6 +4,7 @@ extends Sprite2D
 var bullet = preload("res://scenes/bullet.tscn")
 
 var is_reloaded = true
+var damage = 50
 
 var mouse_position = null
 var direction = null

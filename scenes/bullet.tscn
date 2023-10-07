@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvri8fntum6jv"]
+[gd_scene load_steps=4 format=3 uid="uid://cvri8fntum6jv"]
 
 [ext_resource type="Texture2D" uid="uid://ck2qige4by0h7" path="res://art/sprites/spaceships/missiles.png" id="1_bkr8i"]
 [ext_resource type="Script" path="res://scripts/player/bullet.gd" id="1_de70y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln21k"]
+size = Vector2(10, 5)
 
 [node name="bullet" type="Sprite2D"]
 texture_filter = 1
@@ -13,3 +16,9 @@ script = ExtResource("1_de70y")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-2.98023e-08, 0.5)
 scale = Vector2(0.5, 0.25)
+
+[node name="hitbox" type="Area2D" parent="." groups=["damage"]]
+
+[node name="collision" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ln21k")

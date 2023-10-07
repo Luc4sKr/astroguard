@@ -7,3 +7,7 @@ func _ready():
 
 func _exit_tree():
 	Global.parent_node_creation = null
+
+
+func _on_enemy_spawn_timer_timeout():
+	pass # Replace with function body.

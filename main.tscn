@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmmpiqq65r57p"]
+[gd_scene load_steps=5 format=3 uid="uid://bmmpiqq65r57p"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bg776"]
 [ext_resource type="PackedScene" uid="uid://bmk43t3j744tm" path="res://scenes/player.tscn" id="1_wl5s8"]
 [ext_resource type="PackedScene" uid="uid://cks2wjisseog7" path="res://scenes/enemy.tscn" id="3_k5ws1"]
+[ext_resource type="Texture2D" uid="uid://bs8dsq2iq0bvs" path="res://art/images/background.png" id="4_spt17"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_bg776")
@@ -12,3 +13,9 @@ position = Vector2(360, 360)
 
 [node name="enemy" parent="." instance=ExtResource("3_k5ws1")]
 position = Vector2(139, 592)
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 720.0
+offset_bottom = 720.0
+texture = ExtResource("4_spt17")

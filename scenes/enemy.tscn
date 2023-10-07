@@ -18,3 +18,5 @@ script = ExtResource("2_q84s6")
 
 [node name="collision" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_dmkax")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
