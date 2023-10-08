@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var enemy = preload("res://scenes/enemy.tscn")
 
 func _ready():
@@ -9,14 +10,10 @@ func _exit_tree():
 	Global.parent_node_creation = null
 
 func _on_enemy_spawn_timer_timeout():
-	print(Global.screen_width)
-	print(Global.screen_height)
-	
 	var enemy_pos = generate_random_position(Global.screen_width, Global.screen_height)
 	
 	while is_inside_screen(enemy_pos, Global.screen_width, Global.screen_height):
 		enemy_pos = generate_random_position(Global.screen_width, Global.screen_height)
-	
 	Global.instance_node(enemy, enemy_pos, self)
 	
 func generate_random_position(screen_width, screen_height):

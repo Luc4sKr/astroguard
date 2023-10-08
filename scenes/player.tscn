@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmk43t3j744tm"]
+[gd_scene load_steps=4 format=3 uid="uid://bmk43t3j744tm"]
 
 [ext_resource type="Texture2D" uid="uid://doghgswfah2cg" path="res://art/sprites/spaceships/spaceships.png" id="1_55afn"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="2_tlmq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r316y"]
+size = Vector2(29, 42)
 
 [node name="player" type="Sprite2D"]
 texture_filter = 1
@@ -16,4 +19,11 @@ script = ExtResource("2_tlmq8")
 wait_time = 0.35
 one_shot = true
 
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_r316y")
+
 [connection signal="timeout" from="reload_time" to="." method="_on_reload_time_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
