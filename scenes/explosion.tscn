@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://3q54mvvseer4"]
+
+[ext_resource type="Texture2D" uid="uid://b7vvraehe5hli" path="res://art/sprites/effects/explosion.png" id="1_4kba8"]
+[ext_resource type="Script" path="res://scripts/effects/explosion.gd" id="2_pawwo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woy8w"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6epyf"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akeq8"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgj86"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjah7"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weu0q"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yl2l"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipkh0"]
+atlas = ExtResource("1_4kba8")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsfvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woy8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6epyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akeq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgj86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjah7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yl2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipkh0")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[node name="explosion" type="Node2D"]
+script = ExtResource("2_pawwo")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rsfvf")
+animation = &"explode"
+speed_scale = 3.0
+
+[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

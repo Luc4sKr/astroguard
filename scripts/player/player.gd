@@ -28,7 +28,7 @@ func rotate_by_mouse():
 func shoot():
 	if Input.is_action_pressed("shoot") and is_reloaded:
 		if Global.parent_node_creation != null:
-			Global.instance_node(bullet, global_position, Global.parent_node_creation)
+			Global.instance_node(bullet, $shoot_spawn.global_position, Global.parent_node_creation)
 			
 			is_reloaded = false
 			$reload_time.start()

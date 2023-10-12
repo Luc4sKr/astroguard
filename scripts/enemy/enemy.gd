@@ -1,5 +1,6 @@
 extends Sprite2D
 
+var explosion = preload("res://scenes/explosion.tscn")
 
 var mov = Vector2.ZERO
 var speed = 75
@@ -28,4 +29,5 @@ func rotate_by_player():
 func check_life():
 	if life <= 0:
 		queue_free()
+		Global.instance_node(explosion, global_position, Global.parent_node_creation)
 
