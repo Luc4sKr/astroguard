@@ -21,5 +21,5 @@ func generate_random_position(screen_width, screen_height):
 	var py = randf_range(-100, screen_height + 100)
 	return Vector2(px, py)
 	
-func is_inside_screen(position, screen_width, screen_height):
-	return position.x > 0 and position.x < screen_width and position.y > 0 and position.y < screen_height
+func is_inside_screen(pos, screen_width, screen_height):
+	return pos.x > 0 and pos.x < screen_width and pos.y > 0 and pos.y < screen_height
